@@ -17,21 +17,32 @@ public class Main1 {
 
 		list.add(s1);
 		list.add(s2);
+		
+		Collections.sort(list); //will give error if song class will not implements Comparable
 
 		// Will sort in ASC order
 		Comparator<Song> songComAsc = Comparator.comparing(Song::getTitle);
 
-		Collections.sort(list, songComAsc);
+		Collections.sort(list, songComAsc);//passing comparator as an argument.
+		
 		list.forEach(a -> {
 			System.out.println(a);
 		});
+		
+		
 		System.out.println("******************************");
+		
 		Comparator<Song> songComDesc = (Song a1, Song a2) -> s2.getTitle().compareTo(s1.getTitle());
+		
 		Collections.sort(list, songComDesc);
 		list.forEach(a -> {
 			System.out.println(a);
 		});
+		
 		System.out.println("******************************");
+		
+		
+		
 		Collections.sort(list, songComAsc.reversed());
 		list.forEach(a -> {
 			System.out.println(a);
